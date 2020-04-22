@@ -1,0 +1,103 @@
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_0064E6B0-56AB-401F-A7DC-B752CCAA0A95" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" id="_E3DF64F5-101E-4E79-BD8D-2315958EC0B5" name="assignationRule" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_0064E6B0-56AB-401F-A7DC-B752CCAA0A95">
+  <dmn:extensionElements/>
+  <dmn:inputData id="_CC5AD236-78DC-41E3-B265-569759C4DB5B" name="checkAmount">
+    <dmn:extensionElements/>
+    <dmn:variable id="_CCB82B3C-F6A5-472A-A156-52DCDFD02AE4" name="checkAmount" typeRef="number"/>
+  </dmn:inputData>
+  <dmn:decision id="_34680422-CB1F-4D95-87CA-8143E5F12509" name="LaneName">
+    <dmn:extensionElements/>
+    <dmn:variable id="_E2F0CB36-87CE-45C3-BBDA-BE28223D7A43" name="LaneName" typeRef="string"/>
+    <dmn:informationRequirement id="_DD5B5223-3B53-411A-9AF1-DE621BF10870">
+      <dmn:requiredInput href="#_CC5AD236-78DC-41E3-B265-569759C4DB5B"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_0D712A5A-1B7A-48E0-A0BF-CDBAA4DBCEA8" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_A32B6532-BB15-4F15-B2DD-C29CA89E392F">
+        <dmn:inputExpression id="_182BBF21-C48F-4D35-B8B8-7B48698B8919" typeRef="number">
+          <dmn:text>checkAmount</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_37FE1806-7569-4C85-93AF-E462101C520C"/>
+      <dmn:annotation name="Description"/>
+      <dmn:rule id="_540F97D8-9968-4A30-B18F-8481D4644FFF">
+        <dmn:inputEntry id="_89C7BECC-33C0-4066-955E-D339062CA109">
+          <dmn:text>&lt;= 500</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3216DA8F-F76A-469E-82F6-3CFD489FD67F">
+          <dmn:text>"Carril 1"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Amount range for Carril 1</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_1AD55F89-D13E-40CE-81BA-E9938ED767DA">
+        <dmn:inputEntry id="_855AEE33-9D29-4643-B98B-D17FD1E38A95">
+          <dmn:text>(500..3000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_E4A5785B-6C69-4F19-BADB-C6C626730351">
+          <dmn:text>"Carril 2"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Amount range for Carril 2</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_D06B2DFC-699A-4213-9F45-111D012228CA">
+        <dmn:inputEntry id="_594AD82A-6956-420E-A39C-E67900D4AFBD">
+          <dmn:text>(3000..5000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_7EE9798F-8224-477D-A91F-E1BB0942839D">
+          <dmn:text>"Carril 3"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Amount range for Carril 3</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_9072A8CE-C664-46D2-80E9-65A56CD4D34F">
+        <dmn:inputEntry id="_E0604DC1-3311-4B8D-B2EA-3AD8110143F1">
+          <dmn:text>&gt; 5000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_A5300BB2-073A-4F88-AB2B-50C673675311">
+          <dmn:text>"Carril 4"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Amount range for Carril 4</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_0D712A5A-1B7A-48E0-A0BF-CDBAA4DBCEA8">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>241</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-_CC5AD236-78DC-41E3-B265-569759C4DB5B" dmnElementRef="_CC5AD236-78DC-41E3-B265-569759C4DB5B" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="711" y="363" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_34680422-CB1F-4D95-87CA-8143E5F12509" dmnElementRef="_34680422-CB1F-4D95-87CA-8143E5F12509" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="712" y="183" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_DD5B5223-3B53-411A-9AF1-DE621BF10870" dmnElementRef="_DD5B5223-3B53-411A-9AF1-DE621BF10870">
+        <di:waypoint x="761" y="388"/>
+        <di:waypoint x="762" y="183"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
