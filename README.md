@@ -58,6 +58,43 @@ To run the generated native executable, generated in `target/`, execute
 
 #### - Create docker image with decision service using Local Native Image
 
+Generate the native executable for the Docker image
 ```
 mvn clean package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
+```
+
+#### - Generate the Docker image
+
+```
+docker build -f Dockerfile -t dmn-lane-assigment-for-check .
+```
+#### - Generate the container 
+
+```
+docker run -p 8080:8080 -m 16m --cpus=.25 -d --name dmn-lane-assigment-for-check dmn-lane-assigment-for-check
+```
+
+## Testing
+
+### Example Usage
+
+Once the service is up and running, you can use the following example to interact with the service.
+
+##### POST /assignationRule
+
+Curl command (using the JSON object above):
+
+```
+curl -X POST "http://localhost:8080/assignationRule" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"checkAmount\":5001}"
+```
+
+As response, lane assignation is returned.
+
+##### Example response:
+
+```json
+{
+  "checkAmount": 5001,
+  "LaneName": "Carril 4"
+}
 ```
