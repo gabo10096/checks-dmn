@@ -60,7 +60,7 @@ To run the generated native executable, generated in `target/`, execute
 
 Generate the native executable for the Docker image
 ```
-mvn clean package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
+mvn clean package -Pnative 
 ```
 
 #### - Generate the Docker image
